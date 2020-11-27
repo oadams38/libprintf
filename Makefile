@@ -1,3 +1,5 @@
+NAME = libprintf.a
+
 SRCS = ft_printf.c \
 		tools1_numconv.c tools2_print.c \
 		tools3_simple_checks.c tools4_str.c \
@@ -18,10 +20,15 @@ FLAGS = -g -c
 libft.o : 
 	$(CC) $(FLAGS) $(SRCS)
 	
-all: libft.o 
-	ar rvs libprintf.a *.o 
+$(NAME): libft.o 
+	ar rvs $(NAME) *.o 
+
+all: $(NAME)
 
 clean:
-	rm *.o
+	rm -f *.o
+
+fclean: clean
+	rm -f $(NAME)
 
 re: clean all

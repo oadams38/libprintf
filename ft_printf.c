@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 12:55:09 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/26 17:14:21 by user42           ###   ########.fr       */
+/*   Created: 2020/11/27 10:49:32 by oadams            #+#    #+#             */
+/*   Updated: 2020/11/27 10:51:31 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	add_flag(int *params, char c)
 
 int		fake_call_print_normal(char c, int *printed)
 {
-	*printed++;
+	*printed = *printed + 1;
 	ft_putchar(c);
 	return (0);
 }

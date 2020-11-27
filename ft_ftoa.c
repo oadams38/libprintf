@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 12:54:20 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/26 17:36:00 by user42           ###   ########.fr       */
+/*   Created: 2020/11/27 10:49:23 by oadams            #+#    #+#             */
+/*   Updated: 2020/11/27 10:55:46 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ static void		fill_0(char *str, int i, int precision)
 		str[++j] = '.';
 	while (precision-- > 0)
 		str[++j] = '0';
+	return ;
 }
 
 static char		*exceptions(double n, int precision, char padding)
@@ -79,6 +80,7 @@ static char		*exceptions(double n, int precision, char padding)
 			return (NULL);
 		return (str);
 	}
+	return (NULL);
 }
 
 char			*ft_ftoa(double n, int *params, char padding)

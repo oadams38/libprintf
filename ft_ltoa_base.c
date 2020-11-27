@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 12:55:11 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/26 17:31:55 by user42           ###   ########.fr       */
+/*   Created: 2020/11/27 10:49:29 by oadams            #+#    #+#             */
+/*   Updated: 2020/11/27 10:55:27 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ static char		*exceptions(long n, long precision, char padding)
 			return (NULL);
 		return (str);
 	}
+	return (NULL);
 }
 
 char			*ft_ltoa_base(long n, int *params, char padding, long base)
