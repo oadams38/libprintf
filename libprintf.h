@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:36 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/27 10:49:39 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 14:15:00 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 # include <stdarg.h>
 
-int		ft_printf(char *format, ...);
+int		ft_printf(const char *format, ...);
 int		ft_strhasc(char *str, char c);
 int		ft_atoi(const char *nptr);
 char	*ft_ltoa_base(long n, int *params, char padding, long base);

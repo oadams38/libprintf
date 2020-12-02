@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:32 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/27 10:51:31 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 14:18:16 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		parse_and_print(char *str, va_list arg, int *printed)
 	}
 	while (str[i] && ft_strhasc("lhL", str[i]))
 		add_flag(params, str[i++]);
-	if (ft_strhasc("cspdiouxXf", str[i]))
+	if (ft_strhasc("cspdiuxXf", str[i]))
 		params[10] = (int)str[i];
 	else
 		return (fake_call_print_normal(str[0], printed));
@@ -60,7 +60,7 @@ int		parse_and_print(char *str, va_list arg, int *printed)
 	return (i);
 }
 
-int		ft_printf(char *format, ...)
+int		ft_printf(const char *format, ...)
 {
 	int		i;
 	int		*printed;
