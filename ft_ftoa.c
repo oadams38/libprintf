@@ -6,16 +6,14 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:23 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/27 10:55:46 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 15:32:17 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "ft_printf.h"
 
 long			get_precision(double n, int precision)
 {
-	int	dec;
-
 	n = n - (double)((long)n);
 	while (precision--)
 		n *= 10;
@@ -65,7 +63,7 @@ static void		fill_0(char *str, int i, int precision)
 	return ;
 }
 
-static char		*exceptions(double n, int precision, char padding)
+static char		*exceptions(double n, int precision)
 {
 	char	*str;
 
@@ -93,7 +91,7 @@ char			*ft_ftoa(double n, int *params, char padding)
 
 	precision = params[9];
 	if (n == 0)
-		return (exceptions(n, precision, padding));
+		return (exceptions(n, precision));
 	i = 0;
 	tmp = n;
 	while (tmp >= 1 && ++i)

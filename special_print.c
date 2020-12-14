@@ -6,11 +6,11 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:00 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/27 10:50:02 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 16:38:41 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "ft_printf.h"
 
 char	get_padding(int *params)
 {
@@ -19,7 +19,7 @@ char	get_padding(int *params)
 	return (' ');
 }
 
-void	fill_zeros(char *s, char prefix, int zero)
+void	fill_zeros(char *s, int zero)
 {
 	int	i;
 
@@ -47,21 +47,9 @@ char	*fill_field(int *params, char *field, char *s, char prefix)
 	return (field);
 }
 
-void	print_add_prefix(char *s, int precision, char prefix, int *printed)
-{
-	int	i;
-
-	i = -1;
-	while (s[++i] && !ft_isdigit(s[i]))
-		ft_putchar(s[i]);
-	if (prefix != '\0')
-		ft_putchar(prefix);
-	while (s[i])
-		ft_putchar(s[i++]);
-}
-
 void	special_print(int *params, va_list arg, int *printed)
 {
+	*printed = *printed + 1 - 1;
 	if (params[10] == 'c')
 		print_c(params, arg, printed);
 	if (params[10] == 's')

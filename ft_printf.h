@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libprintf.h                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:36 by oadams            #+#    #+#             */
-/*   Updated: 2020/12/02 14:15:00 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 17:16:02 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBPRINTF_H
-# define LIBPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -33,13 +33,13 @@ int		ft_putstr(char *s);
 int		ft_strlen(char *str);
 void	ft_putnbr(int n);
 int		ft_strlen(char *s);
+int		print_field(char *field, int field_size);
 char	*ft_strncpy(char *dest, const char *src, size_t n);
 char	*ft_strcpy(char *dest, const char *src);
 void	special_print(int *params, va_list arg, int *printed);
 char	get_padding(int *params);
-void	fill_zeros(char *s, char prefix, int zero);
+void	fill_zeros(char *s, int zero);
 char	*fill_field(int *params, char *field, char *s, char prefix);
-void	print_add_prefix(char *s, int precision, char prefix, int *printed);
 long	round_(double n);
 void	print_c(int *params, va_list arg, int *printed);
 void	print_s(int *params, va_list arg, int *printed);

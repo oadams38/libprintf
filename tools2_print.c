@@ -6,11 +6,11 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:07 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/27 10:50:08 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 17:14:40 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "ft_printf.h"
 
 static void	print_n(int n)
 {
@@ -46,7 +46,7 @@ void		ft_putnbr(int n)
 
 int			ft_putchar(char c)
 {
-	return (write(1, &c, 1) == -1 ? -1 : c);
+	return (write(1, &c, 1));
 }
 
 int			ft_putstr(char *s)
@@ -56,5 +56,15 @@ int			ft_putstr(char *s)
 	i = -1;
 	while (s[++i])
 		ft_putchar(s[i]);
+	return (i);
+}
+
+int		print_field(char *field, int field_size)
+{
+	int		i;
+
+	i = 0;
+	while (i < field_size)
+		write(1, &field[i++], 1);
 	return (i);
 }

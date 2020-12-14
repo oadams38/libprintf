@@ -1,4 +1,6 @@
-NAME = libprintf.a
+NAME = libftprintf.a
+
+HEADER = ft_printf.h
 
 SRCS = ft_printf.c \
 		tools1_numconv.c tools2_print.c \
@@ -11,17 +13,17 @@ SRCS = ft_printf.c \
 		print_p.c \
 		print_di.c \
 		print_oux.c \
-		print_f.c
+		print_f.c 
 
-CC = gcc
+OBJS = ${SRCS:.c=.o}
 
-FLAGS = -g -c
+%.o: %.c $(HEADER)
+	gcc $(FLAGS) -c $< -o $@
 
-libft.o : 
-	$(CC) $(FLAGS) $(SRCS)
-	
-$(NAME): libft.o 
-	ar rvs $(NAME) *.o 
+FLAGS = -g -c -Wall -Werror -Wextra
+
+$(NAME): $(OBJS) $(HEADER) 
+	ar rvs $(NAME) $(OBJS)
 
 all: $(NAME)
 
@@ -31,4 +33,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: clean all
+re: fclean all
+
+.PHONY: all clean fclean re

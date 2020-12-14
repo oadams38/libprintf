@@ -6,11 +6,11 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:41 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/27 10:49:43 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 17:15:16 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "ft_printf.h"
 
 void	print_c(int *params, va_list arg, int *printed)
 {
@@ -27,7 +27,7 @@ void	print_c(int *params, va_list arg, int *printed)
 			field[0] = c;
 		else
 			field[field_size - 1] = c;
-		*printed += ft_putstr(field);
+		*printed += print_field(field, field_size);
 		free((void*)field);
 	}
 	else

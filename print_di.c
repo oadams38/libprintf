@@ -6,11 +6,11 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:44 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/27 10:49:46 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 17:19:40 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "ft_printf.h"
 
 int			get_int_arg(va_list arg, int *params)
 {
@@ -47,16 +47,16 @@ void		print_di(int *params, va_list arg, int *printed)
 			(pref != '\0')) ? params[8] - (pref != '\0') : params[9];
 	if ((s = ft_ltoa_base((long)n, params, get_padding(params), 10)) == NULL)
 		return ;
-	fill_zeros(s, pref, params[4]);
+	fill_zeros(s, params[4]);
 	if (params[8] > (s_size = ft_strlen(s)))
 	{
 		if ((field = ft_newfield(params[8], get_padding(params))) == NULL)
 			return ;
 		field = fill_field(params, field, s, pref);
-		*printed += ft_putstr(field);
+		*printed += print_field(field, params[8]);
 		free((void*)field);
 	}
 	else
-		*printed += (pref > 0) ? ft_putchar(pref) + ft_putstr(s) : ft_putstr(s);
+		*printed += (pref > 0) ? ft_putchar(pref) + print_field(s, s_size) : print_field(s, s_size);
 	free((void*)s);
 }

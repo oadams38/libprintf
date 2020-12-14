@@ -6,11 +6,11 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:29 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/27 10:55:27 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/04 14:25:29 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "ft_printf.h"
 
 static void		fill_str(int *params, char *str, long n, long base)
 {
@@ -38,7 +38,7 @@ static void		fill_str(int *params, char *str, long n, long base)
 	}
 }
 
-static void		fill_0(char *str, long i, long precision)
+static void		fill_0(char *str, long precision)
 {
 	int	j;
 
@@ -47,7 +47,7 @@ static void		fill_0(char *str, long i, long precision)
 		str[++j] = '0';
 }
 
-static char		*exceptions(long n, long precision, char padding)
+static char		*exceptions(long n, long precision)
 {
 	char	*str;
 
@@ -75,7 +75,7 @@ char			*ft_ltoa_base(long n, int *params, char padding, long base)
 
 	precision = (long)params[9];
 	if (n == 0)
-		return (exceptions(n, precision, padding));
+		return (exceptions(n, precision));
 	i = (params[1] && ft_strhasc("oxX", params[10]));
 	i += (i == 1 && ft_strhasc("xX", params[10]));
 	tmp = n;
@@ -84,7 +84,7 @@ char			*ft_ltoa_base(long n, int *params, char padding, long base)
 	field_size = i > precision ? i : precision;
 	if ((field = ft_newfield(field_size, padding)) == NULL)
 		return (NULL);
-	fill_0(field, i, precision);
+	fill_0(field, precision);
 	fill_str(params, field, n, base);
 	return (field);
 }

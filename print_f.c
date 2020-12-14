@@ -6,11 +6,11 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:47 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/27 10:49:48 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/04 14:32:14 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "ft_printf.h"
 
 double		get_double_arg(va_list arg, int *params)
 {
@@ -48,7 +48,7 @@ void		print_f(int *params, va_list arg, int *printed)
 			(pref != '\0')) ? params[8] - (pref != '\0') : params[9];
 	if ((s = ft_ftoa(n, params, get_padding(params))) == NULL)
 		return ;
-	fill_zeros(s, pref, params[4]);
+	fill_zeros(s, params[4]);
 	if (params[8] > (s_size = ft_strlen(s)))
 	{
 		if ((field = ft_newfield(params[8], get_padding(params))) == NULL)

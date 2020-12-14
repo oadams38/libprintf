@@ -6,11 +6,11 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:32 by oadams            #+#    #+#             */
-/*   Updated: 2020/12/02 14:22:46 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 17:08:55 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "ft_printf.h"
 
 void	add_flag(int *params, char c)
 {
@@ -31,7 +31,36 @@ int		fake_call_print_normal(char c, int *printed)
 	return (0);
 }
 
-int		parse_and_print(char *str, va_list arg, int *printed)
+int		get_param_element(const char *str, va_list arg, int *params, int elem)
+{
+	int		i;
+	int		n;
+
+	i = 0;
+	if (str[i] == '*')
+	{
+		n = va_arg(arg, int);
+		if (n < 0)
+		{
+			n *= -1;
+			params[3] = 1;
+		}
+		params[elem] = n;
+		return (1);
+	}
+	n = ft_atoi(str);
+	if (n < 0)
+	{
+		n *= -1;
+		params[3] = 1;
+	}
+	params[elem] = n;
+	while (str[i] && ft_isdigit(str[i]))
+		i++;
+	return (i);
+}
+
+int		parse_and_print(const char *str, va_list arg, int *printed)
 {
 	int		i;
 	int		params[11];
@@ -41,15 +70,9 @@ int		parse_and_print(char *str, va_list arg, int *printed)
 		i--;
 	while (str[++i] && ft_strhasc("+-#0 ", str[i]))
 		add_flag(params, str[i]);
-	params[8] = ft_atoi(&str[i]);
-	while (str[i] && ft_isdigit(str[i]))
-		i++;
+	i += get_param_element(&str[i], arg, params, 8);
 	if (str[i] && str[i + 1] && str[i] == '.' && ft_isdigit(str[++i]))
-	{
-		params[9] = ft_atoi(&str[i]);
-		while (str[i] && ft_isdigit(str[i]))
-			i++;
-	}
+		i += get_param_element(&str[i], arg, params, 9);
 	while (str[i] && ft_strhasc("lhL", str[i]))
 		add_flag(params, str[i++]);
 	if (ft_strhasc("cspdiuxXf", str[i]))

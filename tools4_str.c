@@ -6,11 +6,11 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:12 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/27 10:50:15 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 15:45:32 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "ft_printf.h"
 
 char	*ft_newfield(size_t size, char c)
 {
@@ -61,14 +61,4 @@ char	*ft_strncpy(char *dest, const char *src, size_t n)
 		i++;
 	}
 	return (dest);
-}
-
-int		ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }
