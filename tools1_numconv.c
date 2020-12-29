@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:04 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/27 10:50:05 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/18 13:16:34 by oadams           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		ft_atoi(const char *nptr)
 	return ((int)n * sign);
 }
 
-void	voidp_to_hex_2(char *hex, char *num, long int n)
+void	voidp_to_hex_2(char *hex, char *num, unsigned long n)
 {
 	int	i;
 
@@ -55,11 +55,11 @@ void	voidp_to_hex_2(char *hex, char *num, long int n)
 
 char	*voidp_to_hex(void *p, char x)
 {
-	long int	n;
-	char		*hex;
-	char		*num;
+	unsigned long	n;
+	char			*hex;
+	char			*num;
 
-	n = (long int)p;
+	n = (unsigned long)p;
 	hex = x == 'x' ? "0123456789abcdef" : "0123456789ABCDEF";
 	num = ft_strnew(30);
 	num[0] = '0';

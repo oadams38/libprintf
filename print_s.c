@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:57 by oadams            #+#    #+#             */
-/*   Updated: 2020/11/27 10:49:58 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/18 12:37:21 by oadams           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,14 @@ void	print_s(int *params, va_list arg, int *printed)
 	int		field_size;
 	char	*s;
 	int		s_size;
+	int		precision;
 
 	s = va_arg(arg, char *);
 	field_size = params[8];
+	precision = params[9];
 	s_size = ft_strlen(s);
+	if (precision != -1)
+		s_size = precision < s_size ? precision : s_size;
 	if (field_size > s_size)
 	{
 		field = ft_newfield(field_size, ' ');
@@ -33,5 +37,8 @@ void	print_s(int *params, va_list arg, int *printed)
 		free((void*)field);
 	}
 	else
-		*printed += ft_putstr(s);
+	{
+		while (s_size--)
+			*printed += ft_putchar(*s++);
+	}
 }

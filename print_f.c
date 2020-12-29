@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:47 by oadams            #+#    #+#             */
-/*   Updated: 2020/12/04 14:32:14 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/18 14:05:28 by oadams           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void		print_f(int *params, va_list arg, int *printed)
 	n = get_double_arg(arg, params);
 	pref = get_pref(params, n);
 	n *= n < 0 ? -1 : 1;
-	params[9] = (params[4] == 1 && params[3] == 0 && params[9] < params[8] -
-			(pref != '\0')) ? params[8] - (pref != '\0') : params[9];
+	// params[9] = (params[4] == 1 && params[3] == 0 && params[9] < params[8] -
+	// 		(pref != '\0')) ? params[8] - (pref != '\0') : params[9];
 	if ((s = ft_ftoa(n, params, get_padding(params))) == NULL)
 		return ;
 	fill_zeros(s, params[4]);

@@ -6,19 +6,20 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 15:56:25 by oadams            #+#    #+#             */
-/*   Updated: 2020/12/14 17:08:24 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/18 14:06:32 by oadams           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <limits.h>
 
 int		main(int argc, char **argv)
 {
 	int		ret_me;
 	int		ret_pc;
 
-	ret_me = ft_printf(" -%*c* -%-*c* \n", -3, 0, 3, 0);
-	ret_pc = printf(" -%*c* -%-*c* \n", -3, 0, 3, 0);
+	ret_me = ft_printf(" 0*%0-*d*0 0*%0*d*0 \n", 21, 1021, 21, -1011);
+	ret_pc = printf(" 0*%0-*d*0 0*%0*d*0 \n", 21, 1021, 21, -1011);
 
 	printf("me: %d\npc: %d\n", ret_me, ret_pc);
 	return (0);

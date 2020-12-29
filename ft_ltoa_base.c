@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:29 by oadams            #+#    #+#             */
-/*   Updated: 2020/12/04 14:25:29 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/18 14:26:29 by oadams           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ static void		fill_0(char *str, long precision)
 	int	j;
 
 	j = -1;
+	while (str[++j])
+		;
 	while (precision-- > 0)
-		str[++j] = '0';
+		str[--j] = '0';
 }
 
 static char		*exceptions(long n, long precision)

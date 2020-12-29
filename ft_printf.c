@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:32 by oadams            #+#    #+#             */
-/*   Updated: 2020/12/14 17:08:55 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/18 14:27:23 by oadams           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ int		parse_and_print(const char *str, va_list arg, int *printed)
 	while (str[++i] && ft_strhasc("+-#0 ", str[i]))
 		add_flag(params, str[i]);
 	i += get_param_element(&str[i], arg, params, 8);
-	if (str[i] && str[i + 1] && str[i] == '.' && ft_isdigit(str[++i]))
+	params[9] = -1;
+	if (str[i] && str[i + 1] && str[i] == '.' && (++i))
 		i += get_param_element(&str[i], arg, params, 9);
 	while (str[i] && ft_strhasc("lhL", str[i]))
 		add_flag(params, str[i++]);
@@ -106,5 +107,7 @@ int		ft_printf(const char *format, ...)
 			ft_putchar(format[i]);
 	}
 	va_end(arg);
-	return (*printed);
+	i = *printed;
+	free((void*)printed);
+	return (i);
 }

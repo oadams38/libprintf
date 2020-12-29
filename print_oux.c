@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:50 by oadams            #+#    #+#             */
-/*   Updated: 2020/12/04 14:32:26 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2020/12/18 14:02:45 by oadams           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,31 +21,21 @@ int			get_u_arg(va_list arg, int *params)
 	return (va_arg(arg, int));
 }
 
-static char	get_prefix()
-{
-	return ('\0');
-}
-
 void		print_oux(int *params, va_list arg, int *printed, int base)
 {
 	char			*field;
 	unsigned int	n;
 	char			*s;
 	int				s_size;
-	char			prefix;
 
 	n = get_u_arg(arg, params);
-	prefix = get_prefix();
-	params[9] = (params[4] && !params[3] && params[9] < params[8] -
-			(prefix != '\0')) ? params[8] - (prefix != '\0') : params[9];
 	if ((s = ft_ltoa_base((long)n, params, get_padding(params), base)) == NULL)
 		return ;
-	fill_zeros(s, params[4]);
 	if (params[8] > (s_size = ft_strlen(s)))
 	{
 		if ((field = ft_newfield(params[8], get_padding(params))) == NULL)
 			return ;
-		field = fill_field(params, field, s, prefix);
+		field = fill_field(params, field, s, '\0');
 		*printed += ft_putstr(field);
 		free((void*)field);
 	}
