@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:29 by oadams            #+#    #+#             */
-/*   Updated: 2020/12/18 14:26:29 by oadams           ###   ########.fr       */
+/*   Updated: 2020/12/29 16:20:47 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ static char		*exceptions(long n, long precision)
 			str = ft_strnew(0);
 			return (str);
 		}
+		precision = precision == -1 ? 1 : precision;
 		if ((str = ft_newfield(precision, '0')) == NULL)
 			return (NULL);
 		return (str);
