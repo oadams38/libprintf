@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:07 by oadams            #+#    #+#             */
-/*   Updated: 2020/12/14 17:14:40 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2021/01/26 14:59:23 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int			ft_putstr(char *s)
 	return (i);
 }
 
-int		print_field(char *field, int field_size)
+int			print_field(char *field, int field_size)
 {
 	int		i;
 
