@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:32 by oadams            #+#    #+#             */
-/*   Updated: 2020/12/29 16:22:15 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2021/01/26 13:30:06 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		get_param_element(const char *str, va_list arg, int *params, int elem)
 		if (n < 0)
 		{
 			n *= -1;
-			params[3] = 1;
+			params[3] = 2;
 		}
 		params[elem] = n;
 		return (1);
@@ -52,7 +52,7 @@ int		get_param_element(const char *str, va_list arg, int *params, int elem)
 	if (n < 0)
 	{
 		n *= -1;
-		params[3] = 1;
+		params[3] = 2;
 	}
 	params[elem] = n;
 	while (str[i] && ft_isdigit(str[i]))

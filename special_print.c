@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:00 by oadams            #+#    #+#             */
-/*   Updated: 2020/12/18 13:40:16 by oadams           ###   ########.fr       */
+/*   Updated: 2021/01/26 14:00:20 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	get_padding(int *params)
 {
-	if (params[4] == 1 && params[3] == 0 && params[9] == 0)
+	if (params[4] == 1 && params[3] == 0 && params[9] == -1)
 		return ('0');
 	return (' ');
 }
@@ -42,8 +42,12 @@ char	*fill_field(int *params, char *field, char *s, char prefix)
 	if (params[3] && ft_strncpy(&field[prefix != '\0'], s, s_size) != NULL)
 		field[0] = prefix != '\0' ? prefix : field[0];
 	else if (ft_strncpy(&field[field_size - s_size], s, s_size) != NULL)
-		field[field_size - s_size - 1] = prefix != '\0' ?
-			prefix : field[field_size - s_size - 1];
+	{
+		if (field[0] == ' ' && prefix != '\0')
+			field[field_size - s_size - 1] = prefix;
+		else if (field[0] == '0' && prefix != '\0')
+			field[0] = prefix;
+	}
 	return (field);
 }
 

@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 15:56:25 by oadams            #+#    #+#             */
-/*   Updated: 2020/12/29 16:38:25 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2021/01/26 14:12:12 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int		main(int argc, char **argv)
 	int		ret_me;
 	int		ret_pc;
 
-	ret_me = ft_printf("%09.0d\n", UINT_MAX);
-	ret_pc = printf("%09.0d\n", UINT_MAX);
+	ret_me = ft_printf(" %.*s \n", -2, NULL);
+	ret_pc = printf(" %.*s \n", -2, NULL);
 
 	printf("me: %d\npc: %d\n", ret_me, ret_pc);
 	return (0);

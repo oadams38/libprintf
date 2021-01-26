@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:49:44 by oadams            #+#    #+#             */
-/*   Updated: 2020/12/29 16:33:59 by oadams           ###   ########lyon.fr   */
+/*   Updated: 2021/01/26 14:06:48 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,17 @@ void		print_di(int *params, va_list arg, int *printed)
 
 	n = get_int_arg(arg, params);
 	params[2] = (pref = get_pref(params, n)) == '-' ? 1 : params[2];
-	n *= n < 0 ? -1 : 1;
-	if ((s = ft_ltoa_base((long)n, params, get_padding(params), 10)) == NULL)
-		return ;
+	if (n == -2147483648)
+	{
+		s = ft_strnew(10);
+		ft_strcpy(s, "2147483648");
+	}
+	else
+	{
+		n *= n < 0 ? -1 : 1;
+		if ((s = ft_ltoa_base((long)n, params, get_padding(params), 10)) == NULL)
+			return ;
+	}
 	if (params[8] > (s_size = ft_strlen(s)))
 	{
 		if ((field = ft_newfield(params[8], get_padding(params))) == NULL)

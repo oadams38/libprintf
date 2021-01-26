@@ -6,7 +6,7 @@
 /*   By: oadams <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:50:04 by oadams            #+#    #+#             */
-/*   Updated: 2020/12/18 13:16:34 by oadams           ###   ########.fr       */
+/*   Updated: 2021/01/26 10:09:28 by oadams           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,11 @@ char	*voidp_to_hex(void *p, char x)
 	num = ft_strnew(30);
 	num[0] = '0';
 	num[1] = x;
+	if (n == 0)
+	{
+		num[2] = '0';
+		return (num);
+	}
 	voidp_to_hex_2(hex, num, n);
 	return (num);
 }
